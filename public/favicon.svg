@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Blue Ribbon Gradient -->
+    <linearGradient id="blueRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="50%" stop-color="#0084ff"/>
+      <stop offset="100%" stop-color="#0055ff"/>
+    </linearGradient>
+    
+    <!-- Blue Shadow / Depth -->
+    <linearGradient id="blueFold" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0044cc"/>
+      <stop offset="100%" stop-color="#0077ff"/>
+    </linearGradient>
+
+    <!-- Green Stem Gradient -->
+    <linearGradient id="greenStem" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00c853"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#69f0ae"/>
+    </linearGradient>
+
+    <!-- Pulse Line Glow -->
+    <filter id="pulseGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle for favicon contrast -->
+  <rect width="100" height="100" rx="22" fill="#0a1020"/>
+  <rect width="98" height="98" x="1" y="1" rx="21" stroke="#1e2d47" stroke-width="1.5" fill="none"/>
+
+  <!-- Pulse Monitor Area (Dark notch background inside M) -->
+  <path d="M 32 60 L 50 42 L 68 60 L 68 80 L 32 80 Z" fill="#070c18" />
+
+  <!-- Pulse line (ECG / Metrics chart) -->
+  <path d="M 34 74 L 43 74 L 48 64 L 54 77 L 59 67 L 66 74" 
+        stroke="#00e676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#pulseGlow)"/>
+
+  <!-- Left Blue Stem & Ribbon Fold of M -->
+  <!-- Left Column -->
+  <path d="M 20 40 C 20 31 27 24 36 24 C 43 24 49 28 52 34 L 38 60 L 32 80 C 25 80 20 75 20 68 Z" 
+        fill="url(#blueRibbon)"/>
+
+  <!-- Center Blue Diagonal Fold -->
+  <path d="M 36 24 C 44 24 50 28 54 35 L 62 50 L 50 63 L 36 44 Z" 
+        fill="url(#blueFold)" opacity="0.95"/>
+
+  <!-- Right Green Stem of M -->
+  <path d="M 52 35 C 56 29 62 25 70 25 C 75 25 80 29 80 35 L 80 72 C 80 77 75 80 70 80 C 65 80 62 76 62 70 L 62 48 L 50 63 Z" 
+        fill="url(#greenStem)"/>
+
+  <!-- Dot above right stem (signal / ping) -->
+  <circle cx="80" cy="18" r="5.5" fill="#00e676" filter="url(#pulseGlow)"/>
+</svg>
